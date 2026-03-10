@@ -1,0 +1,20 @@
+{
+    "name": "Pet Verde",
+    "short_name": "Pet Verde",
+    "description": "Tienda de mascotas y servicio de grooming en Itagüí",
+    "icons": [
+        {
+            "src": "/images/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#0f5534",
+    "background_color": "#e6edd9",
+    "display": "standalone"
+}

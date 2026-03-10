@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ .Site.Params.description }}">
+    <title>{{ .Title }} - {{ .Site.Title }}</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0f5534">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts - Montserrat como alternativa a Campton -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 
+         * Tipografía de marca: Campton Bold y Campton Extrabold
+         * Si tienes la licencia de Campton, agrega los archivos .woff2 en static/fonts/
+         * y descomenta la sección @font-face a continuación
+         */
+        
+        /*
+        @font-face {
+            font-family: 'Campton';
+            src: url('/fonts/Campton-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Campton';
+            src: url('/fonts/Campton-ExtraBold.woff2') format('woff2');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+        */
+        
+        :root {
+            /* Tipografía */
+            --font-primary: 'Montserrat', 'Campton', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-weight-bold: 700;
+            --font-weight-extrabold: 800;
+            
+            /* Paleta de colores Pet Verde - SOLO 4 colores oficiales */
+            --color-primary: #0f5534;      /* Verde oscuro principal */
+            --color-secondary: #47833f;    /* Verde medio */
+            --color-tertiary: #86b357;     /* Verde claro */
+            --color-light: #e6edd9;        /* Verde muy claro / crema - fondo */
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            font-weight: var(--font-weight-bold);
+            background-color: var(--color-light);
+            min-height: 100vh;
+        }
+        
+        .navbar-brand {
+            font-weight: var(--font-weight-extrabold);
+            font-size: 1.5rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+            color: var(--color-light);
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+        
+        .hero-section h1 {
+            font-weight: var(--font-weight-extrabold);
+        }
+        
+        .hero-section .lead {
+            font-weight: var(--font-weight-bold);
+        }
+        
+        .hero-logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 8px rgba(15, 85, 52, 0.3));
+        }
+        
+        .navbar-logo {
+            height: 30px;
+            width: auto;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: var(--font-weight-extrabold);
+        }
+        
+        .card-title {
+            font-weight: var(--font-weight-extrabold);
+        }
+        
+        .card {
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(15, 85, 52, 0.15);
+            border: none;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s;
+            background-color: var(--color-light);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(15, 85, 52, 0.25);
+        }
+        
+        .card-header {
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+        }
+        
+        .service-card {
+            height: 100%;
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--color-secondary);
+            margin-bottom: 15px;
+        }
+        
+        .contact-section {
+            background-color: var(--color-light);
+            border-radius: 0.5rem;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(15, 85, 52, 0.15);
+        }
+        
+        .btn-success {
+            background-color: var(--color-secondary);
+            border-color: var(--color-secondary);
+            color: var(--color-light);
+            font-weight: var(--font-weight-extrabold);
+        }
+        
+        .btn-success:hover {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+        
+        .nav-link {
+            font-weight: var(--font-weight-bold);
+        }
+        
+        .map-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            margin-top: 20px;
+        }
+        
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 0.5rem;
+        }
+        
+        footer {
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            padding: 20px 0;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--color-primary);">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="/images/Logo.png" alt="Pet Verde" class="navbar-logo">
+                Pet Verde
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">
+                            <i class="bi bi-scissors"></i> Servicios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ubicacion">
+                            <i class="bi bi-geo-alt"></i> Ubicación
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">
+                            <i class="bi bi-telephone"></i> Contacto
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section text-center">
+        <div class="container">
+            <img src="/images/Logo.png" alt="Pet Verde Logo" class="hero-logo">
+            <h1 class="display-4 fw-bold">{{ .Title }}</h1>
+            <p class="lead">Tienda de mascotas y servicio de grooming en Itagüí, Antioquia</p>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="container">
+        <!-- Servicios Cards -->
+        <div id="servicios" class="mb-5">
+            <h2 class="text-center mb-4">
+                <i class="bi bi-star-fill text-success"></i> Nuestros Servicios
+            </h2>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card service-card text-center">
+                        <div class="card-body">
+                            <i class="bi bi-scissors service-icon"></i>
+                            <h5 class="card-title">Grooming</h5>
+                            <p class="card-text">Peluquería profesional para tu mascota</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card service-card text-center">
+                        <div class="card-body">
+                            <i class="bi bi-cart-fill service-icon"></i>
+                            <h5 class="card-title">Tienda</h5>
+                            <p class="card-text">Alimentos y accesorios de calidad</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card service-card text-center">
+                        <div class="card-body">
+                            <i class="bi bi-droplet-fill service-icon"></i>
+                            <h5 class="card-title">Spa</h5>
+                            <p class="card-text">Baño y relajación para perros</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card service-card text-center">
+                        <div class="card-body">
+                            <i class="bi bi-heart-fill service-icon"></i>
+                            <h5 class="card-title">Cuidado</h5>
+                            <p class="card-text">Atención especializada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ubicación -->
+        <div id="ubicacion" class="mb-5">
+            <div class="card">
+                <div class="card-header" style="background-color: var(--color-secondary); color: var(--color-light);">
+                    <h4 class="mb-0"><i class="bi bi-geo-alt"></i> Ubicación</h4>
+                </div>
+                <div class="card-body">
+                    <p><i class="bi bi-pin-map-fill text-success"></i> <strong>Pet Verde - Itagüí, Antioquia, Colombia</strong></p>
+                    <p class="text-muted">Visítanos y conoce nuestras instalaciones</p>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5680940890056!2d-75.61044872485982!3d6.188505593799064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4683746c927c4b%3A0x315825b536f9c754!2sPet%20Verde!5e0!3m2!1sen!2sco!4v1773155067872!5m2!1sen!2sco" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="mt-3 text-center">
+                        <a href="https://www.google.com/maps/place/Pet+Verde/@6.1885056,-75.6104487,17z" class="btn btn-outline-success" target="_blank">
+                            <i class="bi bi-map"></i> Ver en Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contacto -->
+        <div id="contacto" class="contact-section mb-5">
+            <h3 class="text-center mb-4">
+                <i class="bi bi-telephone-fill text-success"></i> ¡Contáctanos!
+            </h3>
+            <div class="text-center">
+                <p class="lead">¿Necesitas agendar una cita de grooming?</p>
+                <a href="https://wa.me/573332272604" class="btn btn-success btn-lg" target="_blank">
+                    <i class="bi bi-whatsapp"></i> Reservar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Pet Verde - Tienda de Mascotas y Grooming</p>
+            <p class="mb-0"><small>Itagüí, Antioquia</small></p>
+            <p class="mb-0 mt-2"><small>Desarrollado por <strong>handresc1127</strong> - Todos los derechos reservados</small></p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+baseURL = 'https://petverde.co/'
+languageCode = 'es-co'
+title = 'Pet Verde - Tienda de Mascotas y Grooming'
+
+[params]
+  description = 'Tienda de mascotas y servicio de grooming en Itagüí, Antioquia'
+  author = 'handresc1127'
+  themeColor = '#0f5534'
