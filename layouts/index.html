@@ -199,6 +199,25 @@
             border-radius: 0.5rem;
         }
         
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 75%; /* 4:3 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+        
+        .gallery-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 0.5rem;
+        }
+        
         footer {
             background-color: var(--color-primary);
             color: var(--color-light);
@@ -223,6 +242,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#servicios">
                             <i class="bi bi-scissors"></i> Servicios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#galeria">
+                            <i class="bi bi-images"></i> Galería
                         </a>
                     </li>
                     <li class="nav-item">
@@ -303,6 +327,25 @@
             </div>
         </div>
 
+        <!-- Galería -->
+        <div id="galeria" class="mb-5">
+            <h2 class="text-center mb-4">
+                <i class="bi bi-images"></i> Galería
+            </h2>
+            <div class="card">
+                <div class="card-body">
+                    <p class="text-center"><i class="bi bi-camera-fill" style="color: var(--color-secondary);"></i> <strong>Conoce nuestras instalaciones y servicios</strong></p>
+                    <div class="gallery-container">
+                        <iframe src="https://drive.google.com/embeddedfolderview?id=1jvqA9udTzGW9tpNjtuHqrVUUi3DlTfTc#grid" 
+                                allowfullscreen 
+                                loading="lazy"
+                                title="Galería Pet Verde">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Ubicación -->
         <div id="ubicacion" class="mb-5">
             <div class="card">
@@ -331,9 +374,15 @@
             </h3>
             <div class="text-center">
                 <p class="lead">¿Necesitas agendar una cita de grooming?</p>
-                <a href="https://wa.me/573332272604" class="btn btn-success btn-lg" target="_blank">
+                <a href="https://wa.me/573332272604" class="btn btn-success btn-lg mb-3" target="_blank">
                     <i class="bi bi-whatsapp"></i> Reservar por WhatsApp
                 </a>
+                <div class="mt-4">
+                    <p class="lead">Síguenos en Instagram</p>
+                    <a href="https://www.instagram.com/petverde.itagui" class="btn btn-outline-success btn-lg" target="_blank">
+                        <i class="bi bi-instagram"></i> @petverde.itagui
+                    </a>
+                </div>
             </div>
         </div>
     </div>
