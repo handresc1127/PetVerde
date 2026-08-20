@@ -1,8 +1,8 @@
 baseURL = 'https://petverde.co/'
 languageCode = 'es-co'
-title = 'Pet Verde - Tienda de Mascotas y Grooming'
+title = 'Pet Verde: Tienda de Mascotas en Itagüí | Groomer Profesional, Alimentos, Comida BARF y Medicamentos'
 
 [params]
-  description = 'Tienda de mascotas y servicio de grooming en Itagüí, Antioquia'
+  description = 'Tienda de mascotas en Itagüí, Antioquia. Groomer profesional, venta de alimentos, comida BARF y medicamentos para tu mascota. Agenda tu cita por WhatsApp.'
   author = 'handresc1127'
   themeColor = '#0f5534'

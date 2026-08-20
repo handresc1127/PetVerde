@@ -4,7 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ .Site.Params.description }}">
-    <title>{{ .Title }} - {{ .Site.Title }}</title>
+    <title>{{ .Site.Title }}</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Pet Verde">
+    <meta property="og:title" content="{{ .Site.Title }}">
+    <meta property="og:description" content="{{ .Site.Params.description }}">
+    <meta property="og:url" content="{{ .Site.BaseURL }}">
+    <meta property="og:image" content="{{ "images/Macotas-PerroYGato-Juntos.png" | absURL }}">
+    <meta property="og:locale" content="es_CO">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ .Site.Title }}">
+    <meta name="twitter:description" content="{{ .Site.Params.description }}">
+    <meta name="twitter:image" content="{{ "images/Macotas-PerroYGato-Juntos.png" | absURL }}">
+
+    <!-- JSON-LD Structured Data for Local Business / Pet Store -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "PetStore",
+      "@id": "{{ .Site.BaseURL }}",
+      "name": "Pet Verde",
+      "image": "{{ "images/Macotas-PerroYGato-Juntos.png" | absURL }}",
+      "url": "{{ .Site.BaseURL }}",
+      "telephone": "+573332272604",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Cl 70 # 59-265, Bulevar Verde Local 5",
+        "addressLocality": "Itagüí",
+        "addressRegion": "Antioquia",
+        "addressCountry": "CO"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 6.188505593799064,
+        "longitude": -75.61044872485982
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "09:00",
+          "closes": "20:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "11:00",
+          "closes": "19:00"
+        }
+      ],
+      "sameAs": ["https://www.instagram.com/petverde.itagui"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios Pet Verde",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Grooming" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tienda de alimentos y accesorios" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Spa" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cuidado especializado" } }
+        ]
+      }
+    }
+    </script>
     
     <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
@@ -292,7 +357,7 @@
                     <div class="card service-card text-center">
                         <div class="card-body">
                             <i class="bi bi-scissors service-icon"></i>
-                            <h5 class="card-title">Grooming</h5>
+                            <h3 class="card-title h5">Grooming</h3>
                             <p class="card-text">Peluquería profesional para tu mascota</p>
                         </div>
                     </div>
@@ -301,7 +366,7 @@
                     <div class="card service-card text-center">
                         <div class="card-body">
                             <i class="bi bi-cart-fill service-icon"></i>
-                            <h5 class="card-title">Tienda</h5>
+                            <h3 class="card-title h5">Tienda</h3>
                             <p class="card-text">Alimentos y accesorios de calidad</p>
                         </div>
                     </div>
@@ -310,7 +375,7 @@
                     <div class="card service-card text-center">
                         <div class="card-body">
                             <i class="bi bi-droplet-fill service-icon"></i>
-                            <h5 class="card-title">Spa</h5>
+                            <h3 class="card-title h5">Spa</h3>
                             <p class="card-text">Baño y relajación para perros</p>
                         </div>
                     </div>
@@ -319,7 +384,7 @@
                     <div class="card service-card text-center">
                         <div class="card-body">
                             <i class="bi bi-heart-fill service-icon"></i>
-                            <h5 class="card-title">Cuidado</h5>
+                            <h3 class="card-title h5">Cuidado</h3>
                             <p class="card-text">Atención especializada</p>
                         </div>
                     </div>
@@ -350,7 +415,7 @@
         <div id="ubicacion" class="mb-5">
             <div class="card">
                 <div class="card-header" style="background-color: var(--color-secondary); color: var(--color-light);">
-                    <h4 class="mb-0"><i class="bi bi-geo-alt"></i> Ubicación</h4>
+                    <h2 class="mb-0 h4"><i class="bi bi-geo-alt"></i> Ubicación</h2>
                 </div>
                 <div class="card-body">
                     <p><i class="bi bi-pin-map-fill text-success"></i> <strong>Pet Verde - Itagüí, Antioquia, Colombia</strong></p>
@@ -369,9 +434,9 @@
 
         <!-- Contacto -->
         <div id="contacto" class="contact-section mb-5">
-            <h3 class="text-center mb-4">
+            <h2 class="text-center mb-4 h3">
                 <i class="bi bi-telephone-fill text-success"></i> ¡Contáctanos!
-            </h3>
+            </h2>
             <div class="text-center">
                 <p class="lead">¿Necesitas agendar una cita de grooming?</p>
                 <a href="https://wa.me/573332272604" class="btn btn-success btn-lg mb-3" target="_blank">
